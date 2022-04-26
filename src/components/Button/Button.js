@@ -1,10 +1,10 @@
-const ButtonComponent = ({ title }) => {
+const ButtonComponent = ({ title, type }) => {
   return (
     <>
       <div className="mb-2">
-        <button type="button" className="btn btn-primary btn-lg">
+        <button type={type} className="btn btn-primary btn-lg mt-3">
           {title}
-        </button>{" "}
+        </button>
       </div>
     </>
   );

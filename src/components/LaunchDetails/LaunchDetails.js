@@ -28,7 +28,7 @@ const LaunchDetails = () => {
       {details && (
         <div className="row">
           <div className="m-5 col-5">
-            <div className="card">
+            <div className="card text-center bg-transparent">
               {details.links.mission_patch_small ? (
                 <img
                   src={details.links.mission_patch_small}
@@ -62,7 +62,7 @@ const LaunchDetails = () => {
             </div>
           </div>
           <div className="m-5 col-5">
-            <div className="card">
+            <div className="card text-center bg-transparent">
               <div className="card-body">
                 <h5 className="card-title">
                   Rocket name : {details.rocket.rocket_name}
