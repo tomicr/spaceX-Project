@@ -7,6 +7,7 @@ import { useTheme } from "./contexts/ThemeContext";
 import LoginComponent from "./components/Login/LoginComponent";
 import SignInComponent from "./components/SignIn/SignUpComponent";
 import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   const { isDark } = useTheme();
@@ -18,8 +19,10 @@ function App() {
           <Routes>
             <Route path="/" element={<SignInComponent />} />
             <Route path="/login" element={<LoginComponent />} />
-            <Route path="/launchList" element={<LaunchList />} />
-            <Route path="/launchDetails/:id" element={<LaunchDetails />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/launchList" element={<LaunchList />} />
+              <Route path="/launchDetails/:id" element={<LaunchDetails />} />
+            </Route>
           </Routes>
         </div>
       </Router>

@@ -18,7 +18,6 @@ const LaunchList = () => {
   useEffect(() => {
     if (data) {
       setLaunches((prevVal) => prevVal.concat(data));
-      console.log(data);
     }
   }, [data]);
   const observer = useRef();
