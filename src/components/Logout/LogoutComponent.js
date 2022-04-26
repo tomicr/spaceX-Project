@@ -16,10 +16,10 @@ const LogoutComponent = () => {
   }
   return (
     <div className="card text-center bg-transparent w-25 mt-3">
-      <strong>Email: {currentUser?.email}</strong>
+      <strong>User email : {currentUser?.email}</strong>
       {error ? <div style={{ color: "red" }}>{error}</div> : null}
       <button
-        className="bg-transparent border border-primary rounded"
+        className="btn btn-primary rounded"
         onClick={handleLogout}
         type="button"
       >

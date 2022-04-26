@@ -18,6 +18,7 @@ const LaunchList = () => {
   useEffect(() => {
     if (data) {
       setLaunches((prevVal) => prevVal.concat(data));
+      console.log(data);
     }
   }, [data]);
   const observer = useRef();
@@ -27,9 +28,7 @@ const LaunchList = () => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          if (window.scrollY) {
-            setOffset((prevOffset) => prevOffset + 20);
-          }
+          setOffset((prevOffset) => prevOffset + 20);
         }
       });
       if (node) observer.current.observe(node);
@@ -41,35 +40,50 @@ const LaunchList = () => {
     setInputFilter(e.target.value);
   };
 
-  useDebounce(inputFilter, () => {
-    setFilter(inputFilter);
-    setOffset(0);
-    setLaunches([]);
-  });
+  useDebounce(
+    useCallback(() => {
+      setFilter(inputFilter);
+    }, [inputFilter]),
+    useCallback(() => {
+      setOffset(0);
+      setLaunches([]);
+    }, []),
+    inputFilter
+  );
 
   return (
     <div className="container">
-      <LogoutComponent />
-      <InputComponent
-        onChange={handleSearch}
-        value={inputFilter}
-        placeholder="Find launches by year..."
-      />
-
+      <div className="d-flex justify-content-between">
+        <InputComponent
+          onChange={handleSearch}
+          value={inputFilter}
+          placeholder="Find launches by year..."
+        />
+        <LogoutComponent />
+      </div>
       <div className="row">
         {error && <div style={{ color: "red" }}>{error}</div>}
         {isPending && <h1 style={{ color: "green" }}>Loading...</h1>}
         {launches &&
           launches.map((launch, index) => {
-            return (
-              <div className="m-5 col-3" key={index}>
-                <div>
+            if (launches.length === index + 1) {
+              return (
+                <div
+                  className="m-5 col-3"
+                  key={index}
+                  ref={lastLaunchRefElement}
+                >
                   <LaunchCard launch={launch} />
                 </div>
-              </div>
-            );
+              );
+            } else {
+              return (
+                <div className="m-5 col-3" key={index}>
+                  <LaunchCard launch={launch} />
+                </div>
+              );
+            }
           })}
-        <div ref={lastLaunchRefElement}></div>
       </div>
     </div>
   );
