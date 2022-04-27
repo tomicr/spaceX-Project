@@ -11,7 +11,7 @@ const LaunchDetails = () => {
   );
   const navigate = useNavigate();
   const handleBack = () => {
-    navigate("/launchList");
+    navigate("/launch-list");
   };
   return (
     <div className="container">

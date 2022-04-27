@@ -18,7 +18,7 @@ const LoginComponent = () => {
     validationSchema,
     onSubmit: async (values) => {
       await login(values.email, values.password);
-      navigate("/launchList");
+      navigate("/launch-list");
     },
   });
   return (
@@ -75,6 +75,9 @@ const LoginComponent = () => {
             ) : null}
           </div>
           <ButtonComponent type="submit" title="Submit" />
+          <div>
+            <Link to="/forgot-password">Forgot password?</Link>
+          </div>
           <div>
             Need an account?{" "}
             <Link to="/">

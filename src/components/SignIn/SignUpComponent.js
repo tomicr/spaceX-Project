@@ -19,14 +19,14 @@ const SignInComponent = () => {
     validationSchema,
     onSubmit: async (values) => {
       await signup(values.email, values.password);
-      navigate("/launchList");
+      navigate("/launch-list");
     },
   });
   return (
     <div className="card m-auto mt-5 bg-transparent p-3 w-25">
       <div className="card-body text-center">
         <form onSubmit={formik.handleSubmit}>
-          <h1 className=" pb-3">Sign up</h1>
+          <h1 className="pb-3">Sign up</h1>
           <div className="form-group p-1">
             <label htmlFor="email">Email</label>
             <InputComponent
@@ -76,7 +76,7 @@ const SignInComponent = () => {
             ) : null}
           </div>
           <ButtonComponent type="submit" title="Submit" />
-          <div>
+          <div className="mt-3">
             Already have an account?{" "}
             <Link to="/login">
               <strong>Log In</strong>

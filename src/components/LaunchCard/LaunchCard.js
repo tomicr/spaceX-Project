@@ -25,7 +25,7 @@ const LaunchCard = ({ launch }) => {
         ) : (
           <div>NO DETAILS</div>
         )}
-        <Link to={`/launchDetails/${launch.flight_number}`}>
+        <Link to={`/launch-details/${launch.flight_number}`}>
           <ButtonComponent
             className="btn btn-primary btn-lg"
             type="button"
