@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import noImage from "../../assets/no-image.png";
 import back from "../../assets/back.png";
 import { useQuery } from "@apollo/client";
-import { LAUNCH } from "../../hooks/useGetLaunches";
+import { LAUNCH } from "../../queries/useGetLaunches";
 const LaunchDetails = () => {
   const { id } = useParams();
   const { loading, data, error } = useQuery(LAUNCH, {

@@ -4,7 +4,7 @@ import useDebounce from "../../hooks/useDebounce";
 import InputComponent from "../Input/InputComponent";
 import LogoutComponent from "../Logout/LogoutComponent";
 import { useQuery } from "@apollo/client";
-import { LAUNCHES } from "../../hooks/useGetLaunches";
+import { LAUNCHES } from "../../queries/useGetLaunches";
 
 const LaunchList = () => {
   const [offset, setOffset] = useState(0);

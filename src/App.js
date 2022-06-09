@@ -25,15 +25,15 @@ function App() {
               <Route path="/" element={<SignInComponent />} />
               <Route path="/login" element={<LoginComponent />} />
               <Route path="forgot-password" element={<ForgotPassword />} />
-              {/* <Route element={<PrivateRoute />}> */}
-              {/* <Route path="/launch-list" element={<LaunchList />} /> */}
-              <Route path="/launch-list-sec" element={<LaunchListSecond />} />
-              {/* <Route path="/launch-details/:id" element={<LaunchDetails />} /> */}
-              <Route
-                path="/launch-details-sec/:id"
-                element={<LaunchDetailsSec />}
-              />
-              {/* </Route> */}
+              <Route element={<PrivateRoute />}>
+                {/* <Route path="/launch-list" element={<LaunchList />} /> */}
+                <Route path="/launch-list-sec" element={<LaunchListSecond />} />
+                {/* <Route path="/launch-details/:id" element={<LaunchDetails />} /> */}
+                <Route
+                  path="/launch-details-sec/:id"
+                  element={<LaunchDetailsSec />}
+                />
+              </Route>
             </Routes>
           </div>
         </Router>
