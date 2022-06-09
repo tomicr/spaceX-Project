@@ -19,7 +19,7 @@ const SignInComponent = () => {
     validationSchema,
     onSubmit: async (values) => {
       await signup(values.email, values.password);
-      navigate("/launch-list");
+      navigate("/launch-list-sec");
     },
   });
   return (

@@ -18,7 +18,7 @@ const LoginComponent = () => {
     validationSchema,
     onSubmit: async (values) => {
       await login(values.email, values.password);
-      navigate("/launch-list");
+      navigate("/launch-list-sec");
     },
   });
   return (
