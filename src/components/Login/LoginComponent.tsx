@@ -1,3 +1,4 @@
+import React from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
@@ -33,7 +34,7 @@ const LoginComponent = () => {
               className="form-control"
               id="email"
               placeholder="Enter email..."
-              values={formik.values.email}
+              value={formik.values.email}
               onChange={formik.handleChange}
             />
             {formik.errors.email ? (
@@ -49,7 +50,7 @@ const LoginComponent = () => {
               className="form-control"
               id="password"
               placeholder="Enter password..."
-              values={formik.values.password}
+              value={formik.values.password}
               onChange={formik.handleChange}
             />
             {formik.errors.password ? (
@@ -65,7 +66,7 @@ const LoginComponent = () => {
               className="form-control"
               id="confirmationPassword"
               placeholder="Enter confirmation password..."
-              values={formik.values.confirmationPassword}
+              value={formik.values.confirmationPassword}
               onChange={formik.handleChange}
             />
             {formik.errors.confirmationPassword ? (

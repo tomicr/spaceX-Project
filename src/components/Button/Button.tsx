@@ -1,4 +1,7 @@
-const ButtonComponent = ({ title, type }) => {
+import React from "react";
+import { ButtonProps } from "../../../src/types/PropTypes";
+
+function ButtonComponent({ title, type }: ButtonProps) {
   return (
     <>
       <div className="mb-2">
@@ -8,5 +11,5 @@ const ButtonComponent = ({ title, type }) => {
       </div>
     </>
   );
-};
+}
 export default ButtonComponent;

@@ -1,17 +1,24 @@
-import { useState, useRef, useCallback, useEffect } from "react";
-import LaunchCard from "../../components/LaunchCard/LaunchCard";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  ChangeEvent,
+} from "react";
+import LaunchCard from "../LaunchCard/LaunchCard";
 import useDebounce from "../../hooks/useDebounce";
 import useFetch from "../../hooks/useFetch";
 import InputComponent from "../Input/InputComponent";
 import LogoutComponent from "../Logout/LogoutComponent";
+import { Launch } from "src/types/LaunchTypes";
 
 const LaunchList = () => {
   const [offset, setOffset] = useState(0);
   const limit = 20;
   const [filter, setFilter] = useState("");
   const [inputFilter, setInputFilter] = useState("");
-  const [launches, setLaunches] = useState([]);
-  const { data, isPending, error } = useFetch(
+  const [launches, setLaunches] = useState([] as Array<Launch>);
+  const { data, isPending, error } = useFetch<Launch>(
     `${process.env.REACT_APP_SPACEX_API}?offset=${offset}&limit=${limit}&launch_year=${filter}`
   );
 
@@ -20,9 +27,9 @@ const LaunchList = () => {
       setLaunches((prevVal) => prevVal.concat(data));
     }
   }, [data]);
-  const observer = useRef();
+  const observer = useRef<IntersectionObserver | null>(null);
   const lastLaunchRefElement = useCallback(
-    (node) => {
+    (node: HTMLElement | null) => {
       if (isPending) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
@@ -36,7 +43,7 @@ const LaunchList = () => {
     [isPending]
   );
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setInputFilter(e.target.value);
   };
 

@@ -1,12 +1,15 @@
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import noImage from "../../assets/no-image.png";
-import back from "../../assets/back.png";
+import { Launch } from "../../types/LaunchTypes";
+import { PathParams } from "../../types/PropTypes";
+const noImage = require("../../assets/no-image.png");
+const back = require("../../assets/back.png");
 
 const LaunchDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams<PathParams>();
 
-  const { data: details, isPending, error } = useFetch(
+  const { data: details, isPending, error } = useFetch<Launch>(
     `${process.env.REACT_APP_SPACEX_API}/${id}`
   );
   const navigate = useNavigate();

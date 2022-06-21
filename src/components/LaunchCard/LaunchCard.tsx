@@ -1,8 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import ButtonComponent from "../Button/Button";
-import noImage from "../../assets/no-image.png";
+import { LaunchProps } from "../../types/PropTypes";
+const noImage = require("../../assets/no-image.png");
 
-const LaunchCard = ({ launch }) => {
+const LaunchCard = ({ launch }: LaunchProps) => {
   return (
     <div className="card text-center bg-transparent">
       {launch.links.mission_patch_small ? (
@@ -26,11 +28,7 @@ const LaunchCard = ({ launch }) => {
           <div>NO DETAILS</div>
         )}
         <Link to={`/launch-details-sec/${launch.id}`}>
-          <ButtonComponent
-            className="btn btn-primary btn-lg"
-            type="button"
-            title="More Details"
-          />
+          <ButtonComponent type="button" title="More Details" />
         </Link>
       </div>
     </div>

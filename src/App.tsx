@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,10 +9,10 @@ import { ApolloProvider } from "@apollo/client";
 import { client } from "./setupApolo";
 import LoginComponent from "./components/Login/LoginComponent";
 import SignInComponent from "./components/SignIn/SignUpComponent";
-import LaunchDetails from "./components/LaunchDetails/LaunchDetails";
+// import LaunchDetails from "./components/LaunchDetails/LaunchDetails";
 import LaunchDetailsSec from "./components/LaunchDetails/LaunchDetailsSec";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import LaunchList from "./components/LaunchList/LaunchList";
+// import LaunchList from "./components/LaunchList/LaunchList";
 import LaunchListSecond from "./components/LaunchList/LaunchListSecond";
 function App() {
   const { isDark } = useTheme();

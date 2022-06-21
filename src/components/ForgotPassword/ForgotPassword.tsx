@@ -1,8 +1,8 @@
+import React, { FormEvent, ChangeEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import ButtonComponent from "../Button/Button";
 import InputComponent from "../Input/InputComponent";
-import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { useState } from "react";
 
 const ForgotPassword = () => {
   const { resetPassword } = useAuth();
@@ -10,11 +10,11 @@ const ForgotPassword = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       setMessage("");
